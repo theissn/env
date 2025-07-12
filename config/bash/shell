@@ -1,3 +1,5 @@
+export EDITOR="vim"
+
 eval "$(mise activate bash)"
 
 if [[ ! -v BASH_COMPLETION_VERSINFO && -f /usr/share/bash-completion/bash_completion ]]; then
