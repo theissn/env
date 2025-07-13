@@ -19,6 +19,8 @@ yay --needed -S \
 	tlp tlp-rdw \
 	tree \
 	ripgrep \
-	ghostty
+	ghostty \
+	yt-dlp mpv \
+	zen-browser-bin
 
 	
