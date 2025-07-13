@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+DEFAULT_HOST="192.168.1.151"
+DEFAULT_SHARE="media"
+DEFAULT_USER="admin"
+DEFAULT_MOUNT_POINT="/mnt/afp_share"
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --host) DEFAULT_HOST="$2"; shift; shift ;;
+    --share) DEFAULT_SHARE="$2"; shift; shift ;;
+    --user) DEFAULT_USER="$2"; shift; shift ;;
+    --mount) DEFAULT_MOUNT_POINT="$2"; shift; shift ;;
+    *) echo "Unknown option: $1"; exit 1 ;;
+  esac
+done
+
+if findmnt "$DEFAULT_MOUNT_POINT" > /dev/null 2>&1; then
+  sudo umount "$DEFAULT_MOUNT_POINT"
+  if findmnt "$DEFAULT_MOUNT_POINT" > /dev/null 2>&1; then
+    echo "Unmount failed. Check if the mount is busy or run with sudo."
+    exit 1
+  else
+    echo "Unmounted successfully from $DEFAULT_MOUNT_POINT"
+    exit 0
+  fi
+else
+  read -s -p "Enter AFP password: " PASSWORD
+  echo ""
+
+  sudo mkdir -p "$DEFAULT_MOUNT_POINT"
+
+  CURRENT_UID=$(id -u)  # Your user ID
+  CURRENT_GID=$(id -g)  # Your group ID
+  sudo mount_afp -o uid="$CURRENT_UID",gid="$CURRENT_GID",file_mode=0664,dir_mode=0775 "afp://$DEFAULT_USER:$PASSWORD@$DEFAULT_HOST/$DEFAULT_SHARE" "$DEFAULT_MOUNT_POINT"
+  #sudo mount_afp "afp://$DEFAULT_USER:$PASSWORD@$DEFAULT_HOST/$DEFAULT_SHARE" "$DEFAULT_MOUNT_POINT"
+
+  if findmnt "$DEFAULT_MOUNT_POINT" > /dev/null 2>&1; then
+    echo "Mounted successfully at $DEFAULT_MOUNT_POINT"
+  else
+    echo "Mount failed. Check credentials, network, or run with sudo if needed."
+    exit 1
+  fi
+
+  unset PASSWORD
+fi
