@@ -1,9 +1,29 @@
 #!/usr/bin/env bash
 
-if [[ "$(hyprctl monitors)" =~ "\sDP-[0-9]+" ]]; then
+# hyprland lid handler: when an external DP monitor is present,
+# disable eDP-1 on lid-close and re-enable it on lid-open.
+
+monitors="$(hyprctl monitors)"
+
+# check for any DP-<digit> monitor
+if echo "$monitors" | grep -qE '^Monitor DP-[0-9]+'; then
+  case "$1" in
+    open)
+      # re-enable eDP-1 to the right of the 2560px-wide DP screen
+      hyprctl keyword monitor "eDP-1,1920x1200,2560x0,1"
+      ;;
+    close)
+      # disable the internal display
+      hyprctl keyword monitor "eDP-1,disable"
+      ;;
+    *)
+      echo "Usage: $0 {open|close}"
+      exit 1
+      ;;
+  esac
+else
+  # no external DP – just ensure the laptop panel is on when opening
   if [[ $1 == "open" ]]; then
-    hyprctl keyword monitor "eDP-1,1920x1080,2560x0,1"
-  else
-    hyprctl keyword monitor "eDP-1,disable"
+    hyprctl keyword monitor "eDP-1,1920x1200,0x0,1"
   fi
 fi

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls"
+if [ $# -lt 1 ]; then
+  echo "Usage: $(basename "$0") <YouTube-URL> [tags...]"
+  exit 1
+fi
+URL="$1"
+shift
+TAGS=${*:-youtube}
+html=$(curl -sL "$URL")
+channel_id=$(printf '%s' "$html" \
+  | grep -oE '"browseEndpoint":\{"browseId":"[^"]+' \
+  | head -n1 \
+  | sed 's/.*browseId":"//')
+if [ -z "$channel_id" ]; then
+  channel_id=$(printf '%s' "$html" \
+    | grep -oE '<meta itemprop="channelId" content="[^"]+' \
+    | head -n1 \
+    | sed 's/.*content="//')
+fi
+if [ -z "$channel_id" ]; then
+  echo "Error: could not retrieve channel ID" >&2
+  exit 1
+fi
+uploader=$(printf '%s' "$html" \
+  | grep -oE '<meta property="og:title" content="[^"]+' \
+  | head -n1 \
+  | sed 's/.*content="//')
+if [ -z "$uploader" ]; then
+  uploader=$(printf '%s' "$html" \
+    | grep -oE '<title>[^<]+' \
+    | head -n1 \
+    | sed 's/<title>//')
+fi
+uploader_esc=$(printf '%s' "$uploader" | sed 's/"/\\"/g')
+feed_url="https://www.youtube.com/feeds/videos.xml?channel_id=$channel_id"
+printf '%s "%s" %s\n' "$feed_url" "$uploader_esc" "$TAGS" >>"$CONFIG"
+echo "Appended to $CONFIG:"
+echo "  URL : $feed_url"
+echo "  Name: $uploader"
+echo "  Tags: $TAGS"
