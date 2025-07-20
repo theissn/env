@@ -29,5 +29,6 @@ yay --needed -S \
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now cups.service
 
-
-	
+sudo systemctl enable tlp.service
+sudo systemctl enable NetworkManager-dispatcher.service
+sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
