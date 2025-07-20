@@ -6,13 +6,14 @@ yay --needed -S \
 	go \
 	hyprland hyprlock hyprshot brightnessctl mako waybar wofi \
 	xdg-desktop-portal-hyprland hyprpolkitagent \
+	uwsm libnewt \
 	bluez bluez-utils blueman \
 	bash-completion \
 	btop \
 	mise \
 	openssh \
 	pipewire wireplumber pavucontrol \
-	ttf-font-awesome noto-fonts-emoji \
+	ttf-font-awesome noto-fonts-emoji ttf-jetbrains-mono-nerd noto-fonts noto-fonts-cjk \
 	tmux \
 	zathura zathura-pdf-poppler \
 	neovim vim \
@@ -21,6 +22,8 @@ yay --needed -S \
 	ripgrep \
 	ghostty \
 	yt-dlp mpv \
-	zen-browser-bin
+	wlsunset \
+	man-db less
+
 
 	
