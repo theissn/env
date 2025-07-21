@@ -1,11 +1,11 @@
-yay --needed -S \
-	chromium \
+sudo pacman --needed -S \
+	chromium firefox \
 	docker docker-compose \
 	php php-sqlite composer \
 	git lazygit \
 	go \
 	hyprland hyprlock hyprshot brightnessctl mako waybar wofi \
-	xdg-desktop-portal-hyprland hyprpolkitagent \
+	xdg-desktop-portal-hyprland hyprpolkitagent polkit-gnome \
 	uwsm libnewt \
 	bluez bluez-utils blueman \
 	bash-completion \
