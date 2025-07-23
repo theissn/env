@@ -4,8 +4,10 @@ sudo pacman --needed -S \
 	php php-sqlite composer \
 	git lazygit \
 	go \
-	hyprland hyprlock hyprshot brightnessctl mako waybar wofi \
+	hyprland hyprlock hyprshot brightnessctl mako waybar wofi hypridle \
 	xdg-desktop-portal-hyprland hyprpolkitagent polkit-gnome \
+	cliphist \
+	gnome-themes-extra \
 	uwsm libnewt \
 	bluez bluez-utils blueman \
 	bash-completion \
@@ -32,3 +34,8 @@ sudo systemctl enable --now cups.service
 sudo systemctl enable tlp.service
 sudo systemctl enable NetworkManager-dispatcher.service
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
+systemctl --user enable --now hypridle.service
+
+mise use -g node@22
+mise use -g ruby@3
