@@ -9,7 +9,7 @@ sudo pacman --needed -S \
 	cliphist \
 	gnome-themes-extra \
 	uwsm libnewt \
-	bluez bluez-utils blueman \
+	bluez bluez-utils blueberry \
 	bash-completion \
 	btop \
 	mise \
@@ -17,7 +17,7 @@ sudo pacman --needed -S \
 	pipewire wireplumber pavucontrol \
 	ttf-font-awesome noto-fonts-emoji ttf-jetbrains-mono-nerd noto-fonts noto-fonts-cjk \
 	tmux \
-	zathura zathura-pdf-poppler \
+	zathura zathura-pdf-mupdf \
 	neovim vim \
 	tlp tlp-rdw \
 	tree \
@@ -26,7 +26,9 @@ sudo pacman --needed -S \
 	yt-dlp mpv \
 	wlsunset \
 	man-db less \
-	cups cups-pdf cups-filters system-config-printer
+	cups cups-pdf cups-filters system-config-printer \
+	transmission-cli \
+	wireguard-tools systemd-resolvconf
 
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now cups.service
