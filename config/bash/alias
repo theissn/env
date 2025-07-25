@@ -1,3 +1,18 @@
 alias trl='transmission-remote -l'
-alias tra='transmission-remote --add'
 alias trp='watch -n2 transmission-remote -l'
+
+trr() {
+    transmission-remote -t "$@" -r
+}
+
+tra() {
+    # Check if transmission-daemon is running
+    if ! pgrep -x "transmission-da" > /dev/null; then
+        echo "Starting transmission-daemon..."
+        transmission-daemon
+        # Optional: Wait briefly to ensure the daemon starts
+        sleep 1
+    fi
+    # Execute the transmission-remote command
+    transmission-remote --add "$@"
+}
