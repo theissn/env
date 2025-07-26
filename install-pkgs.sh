@@ -28,7 +28,7 @@ sudo pacman --needed -S \
 	man-db less \
 	cups cups-pdf cups-filters system-config-printer \
 	transmission-cli \
-	wireguard-tools systemd-resolvconf
+	wireguard-tools systemd-resolvconf nmap cifs-utils afpfs-ng
 
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now cups.service
