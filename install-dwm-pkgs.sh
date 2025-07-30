@@ -4,8 +4,9 @@ sudo pacman -S --needed \
 	yt-dlp mpv ffmpeg zathura zathura-pdf-mupdf tesseract-data-eng slock man-db gnome-themes-extra \
 	wireguard-tools openresolv mise \
 	php php-sqlite composer \
-	brightnessctl noto-fonts
+	brightnessctl noto-fonts noto-fonts-emoji transmission-cli rtkit-daemon polkit
 
 
 systemctl --user start ssh-agent.service
 sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now rtkit-daemon
