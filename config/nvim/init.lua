@@ -68,3 +68,16 @@ vim.api.nvim_create_user_command(
 )
 
 vim.keymap.set('n', '<leader>g', ':Gemini<CR>')
+
+local openrouter_key = os.getenv("OR_KEY")
+require('openrouter').setup{api_key=openrouter_key}
+
+vim.api.nvim_create_user_command(
+  "OpenRouter",
+  function()
+    require("openrouter").ask_openrouter()
+  end,
+  { nargs = 0 }
+)
+
+vim.keymap.set('n', '<leader>or', ':OpenRouter<CR>')
