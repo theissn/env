@@ -1,2 +1,2 @@
 yay --needed -S \
-		phpactor neovim-git
+		phpactor neovim-git opencode-bin

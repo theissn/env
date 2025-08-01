@@ -23,7 +23,7 @@ sudo pacman --needed -S \
 	tlp tlp-rdw \
 	tree \
 	ripgrep fzf \
-	ghostty \
+	kitty \
 	yt-dlp mpv \
 	wlsunset \
 	man-db less \
