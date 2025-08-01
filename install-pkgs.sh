@@ -17,7 +17,8 @@ sudo pacman --needed -S \
 	pipewire wireplumber pavucontrol \
 	ttf-font-awesome noto-fonts-emoji ttf-jetbrains-mono-nerd noto-fonts noto-fonts-cjk \
 	tmux \
-	zathura zathura-pdf-mupdf \
+	zathura zathura-pdf-mupdf tesseract-data-eng \
+	nautilus sushi ffmpegthumbnailer \
 	neovim vim \
 	tlp tlp-rdw \
 	tree \
@@ -28,7 +29,8 @@ sudo pacman --needed -S \
 	man-db less \
 	cups cups-pdf cups-filters system-config-printer \
 	transmission-cli \
-	wireguard-tools systemd-resolvconf nmap cifs-utils afpfs-ng
+	wireguard-tools systemd-resolvconf nmap cifs-utils afpfs-ng \
+	fwupd
 
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now cups.service
@@ -38,6 +40,3 @@ sudo systemctl enable NetworkManager-dispatcher.service
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 systemctl --user enable --now hypridle.service
-
-mise use -g node@22
-mise use -g ruby@3
