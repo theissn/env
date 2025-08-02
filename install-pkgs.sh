@@ -5,7 +5,7 @@ sudo pacman --needed -S \
 	git lazygit \
 	go \
 	hyprland hyprlock hyprshot brightnessctl mako waybar wofi hypridle \
-	xdg-desktop-portal-hyprland hyprpolkitagent polkit-gnome \
+	xdg-desktop-portal-hyprland hyprpolkitagent polkit-gnome gnome-keyring \
 	cliphist \
 	gnome-themes-extra \
 	uwsm libnewt \

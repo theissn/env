@@ -44,8 +44,10 @@ require "nvim-treesitter.configs".setup({
 })
 require "oil".setup()
 
-vim.keymap.set('n', '<leader>f', ":Pick files<CR>")
-vim.keymap.set('n', '<leader>h', ":Pick help<CR>")
+vim.keymap.set('n', '<leader>df', ":Pick files<CR>")
+vim.keymap.set('n', '<leader>dg', ":Pick grep_live<CR>")
+vim.keymap.set('n', '<leader>db', ":Pick buffers<CR>")
+vim.keymap.set('n', '<leader>dh', ":Pick help<CR>")
 vim.keymap.set('n', '<leader>e', ":Oil<CR>")
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>')

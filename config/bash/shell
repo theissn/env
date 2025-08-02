@@ -6,7 +6,7 @@ if [[ ! -v BASH_COMPLETION_VERSINFO && -f /usr/share/bash-completion/bash_comple
   source /usr/share/bash-completion/bash_completion
 fi
 
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.config/composer/vendor/bin"
 
 bind '"\C-f":"tmux-sessionizer\n"'
 
