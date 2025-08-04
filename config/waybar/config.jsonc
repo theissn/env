@@ -8,6 +8,7 @@
   "modules-right": [
     "pulseaudio",
     "battery",
+    "bluetooth",
     "network",
     "tray",
     "custom/lock"
@@ -38,12 +39,20 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "{:%d - %H:%M}"
   },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueberry"
+  },
   "network": {
     "format-wifi": "󰤢 ",
     "format-ethernet": "󰈀 ",
     "format-disconnected": "󰤠 ",
     "interval": 5,
-    "tooltip": false
+    "tooltip": false,
+	"on-click": "ghostty --class=Impala -e impala"
   },
   "cpu": {
     "interval": 1,
