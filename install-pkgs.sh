@@ -23,14 +23,14 @@ sudo pacman --needed -S \
 	tlp tlp-rdw \
 	tree \
 	ripgrep fzf \
-	kitty \
+	ghostty \
 	yt-dlp mpv \
 	wlsunset \
 	man-db less \
 	cups cups-pdf cups-filters system-config-printer \
 	transmission-cli \
 	wireguard-tools systemd-resolvconf nmap cifs-utils afpfs-ng \
-	fwupd
+	fwupd impala rust rsync code newsboat
 
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now cups.service

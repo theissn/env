@@ -11,3 +11,5 @@ if ! command -v yay &>/dev/null; then
   rm -rf yay-bin
   cd ~
 fi
+
+yay -S claude-code opencode-bin
