@@ -19,7 +19,7 @@ sudo pacman --needed -S \
 	tmux \
 	zathura zathura-pdf-mupdf tesseract-data-eng \
 	nautilus sushi ffmpegthumbnailer \
-	neovim vim \
+	vim \
 	tlp tlp-rdw \
 	tree \
 	ripgrep fzf \

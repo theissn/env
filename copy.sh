@@ -5,5 +5,3 @@ cp -r ~/.config/nvim/lua ./config/nvim
 
 cp -r ~/.local/bin ./local
 
-cp -r ~/.xinitrc xinitrc
-
