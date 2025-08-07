@@ -11,7 +11,7 @@ vim.o.signcolumn = "yes"
 vim.keymap.set('n', '<leader>w', ':write<CR>');
 vim.keymap.set('n', '<leader>q', ':quit<CR>');
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
-
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- vim.o.mouse = "a"
 -- vim.o.showmode = false
