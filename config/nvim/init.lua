@@ -44,6 +44,7 @@ vim.pack.add({
 	'https://github.com/nvim-telescope/telescope.nvim',
 	'https://github.com/kdheepak/lazygit.nvim',
 	'https://github.com/stevearc/oil.nvim',
+	'https://github.com/saghen/blink.cmp',
 })
 
 vim.cmd("colorscheme vague")
@@ -56,6 +57,11 @@ require('nvim-treesitter.configs').setup({
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("oil").setup()
+
+require('blink.cmp').setup {
+	fuzzy = { implementation = "lua" },
+}
+
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find files' })
