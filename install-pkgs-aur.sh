@@ -1,2 +1,2 @@
 paru --needed -S \
-		neovim-git opencode-bin
+		neovim-git opencode-bin 
