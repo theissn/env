@@ -16,6 +16,7 @@ sudo pacman --needed -S \
 	openssh \
 	pipewire wireplumber pavucontrol \
 	ttf-font-awesome noto-fonts-emoji ttf-jetbrains-mono-nerd noto-fonts noto-fonts-cjk \
+	ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-ubuntu-font-family \
 	tmux \
 	zathura zathura-pdf-mupdf tesseract-data-eng \
 	nautilus sushi ffmpegthumbnailer \
