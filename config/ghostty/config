@@ -1,0 +1,11 @@
+# theme = rose-pine-moon
+# background = 000000
+confirm-close-surface=false
+
+shell-integration-features = no-cursor,no-sudo,no-title
+gtk-titlebar = false
+font-family = "Ubuntu Mono Nerd"
+font-size = 14
+
+# Disable Ctrl+Enter fullscreen keybind
+keybind = ctrl+enter=unbind
