@@ -71,3 +71,4 @@ vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help ta
 
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>')
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>")
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)

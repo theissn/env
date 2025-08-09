@@ -10,6 +10,7 @@
     "battery",
     "bluetooth",
     "network",
+	"custom/wireguard",
     "tray",
     "custom/lock"
   ],
@@ -76,5 +77,11 @@
     "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
     "format": ""
   },
+  "custom/wireguard": {
+	  "format": "{}",
+	  "exec": "if ip link show lon 2>/dev/null | grep -q 'state UP'; then echo ' '; else echo '';",
+	  "interval": 5,
+	  "tooltip": false,
+  }
 }
 
