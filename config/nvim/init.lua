@@ -7,32 +7,8 @@ vim.o.wrap = false
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.signcolumn = "yes"
+vim.o.winborder = "rounded"
 
-vim.keymap.set('n', '<leader>w', ':write<CR>');
-vim.keymap.set('n', '<leader>q', ':quit<CR>');
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-
--- vim.o.mouse = "a"
--- vim.o.showmode = false
--- vim.o.clipboard = 'unnamedplus'
--- vim.o.breakindent = true
--- vim.o.undofile = true
--- vim.o.ignorecase = true
--- vim.o.smartcase = true
--- vim.o.signcolumn = "yes"
--- vim.o.updatetime = 250
--- vim.o.timeoutlen = 500
--- vim.o.splitright = true
--- vim.o.splitbelow = true
--- vim.o.list = true
--- vim.o.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
--- vim.o.inccommand = "split"
--- vim.o.cursorline = true
--- vim.o.scrolloff = 10
-
-
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.pack.add({
 	'https://github.com/vague2k/vague.nvim',
@@ -62,13 +38,21 @@ require('blink.cmp').setup {
 	fuzzy = { implementation = "lua" },
 }
 
-
+local map = vim.keymap.set
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader> ', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
+map('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find files' })
+map('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope live grep' })
+map('n', '<leader> ', builtin.buffers, { desc = 'Telescope buffers' })
+map('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
 
-vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>')
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>")
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+map('n', '<leader>lg', '<cmd>LazyGit<cr>')
+map("n", "<leader>e", "<CMD>Oil<CR>")
+
+map('n', '<leader>d', vim.diagnostic.open_float)
+map('n', '<leader>dq', vim.diagnostic.setloclist)
+
+map('n', '<leader>w', ':write<CR>');
+map('n', '<leader>q', ':quit<CR>');
+map('n', '<leader>lf', vim.lsp.buf.format)
+map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
