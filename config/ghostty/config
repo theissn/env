@@ -9,3 +9,4 @@ font-size = 14
 
 # Disable Ctrl+Enter fullscreen keybind
 keybind = ctrl+enter=unbind
+keybind = f11=toggle_fullscreen
