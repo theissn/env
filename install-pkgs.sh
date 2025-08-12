@@ -31,7 +31,8 @@ sudo pacman --needed -S \
 	cups cups-pdf cups-filters system-config-printer \
 	transmission-cli \
 	wireguard-tools systemd-resolvconf nmap cifs-utils afpfs-ng \
-	fwupd impala rust rsync code newsboat
+	fwupd impala rust rsync code newsboat \
+	telegram-desktop
 
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now cups.service

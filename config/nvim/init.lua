@@ -9,7 +9,6 @@ vim.o.shiftwidth = 4
 vim.o.signcolumn = "yes"
 vim.o.winborder = "rounded"
 
-
 vim.pack.add({
 	'https://github.com/vague2k/vague.nvim',
 	'https://github.com/nvim-treesitter/nvim-treesitter',
